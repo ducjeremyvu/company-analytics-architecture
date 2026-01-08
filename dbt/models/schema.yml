@@ -17,8 +17,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_projects')
-              field: project_id
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
   - name: stg_students
     columns:
       - name: student_id
@@ -29,8 +30,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_jobs')
-              field: job_id
+              arguments:
+                to: ref('stg_jobs')
+                field: job_id
   - name: stg_workdays
     columns:
       - name: workday_id
@@ -41,14 +43,16 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_students')
-              field: student_id
+              arguments:
+                to: ref('stg_students')
+                field: student_id
       - name: project_id
         tests:
           - not_null
           - relationships:
-              to: ref('stg_projects')
-              field: project_id
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
   - name: stg_invoices
     columns:
       - name: invoice_id
@@ -59,8 +63,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_projects')
-              field: project_id
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
   - name: stg_project_costs
     columns:
       - name: cost_id
@@ -71,8 +76,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_projects')
-              field: project_id
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
   - name: stg_marketing_costs
     columns:
       - name: marketing_id
@@ -83,8 +89,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_projects')
-              field: project_id
+              arguments:
+                to: ref('stg_projects')
+                field: project_id
   - name: project_finance
     columns:
       - name: project_id

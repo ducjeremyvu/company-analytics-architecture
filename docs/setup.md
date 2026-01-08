@@ -21,3 +21,7 @@ Set these before running scripts or orchestration flows:
 4. Create a dataset if needed: `bq mk --dataset $GCP_PROJECT:$BQ_DATASET`
 5. Generate mock data: `python3 scripts/generate_mock_data.py`
 6. Load CSVs into BigQuery: `python3 scripts/load_to_bigquery.py`
+7. Configure dbt profiles:
+   - `mkdir -p ~/.dbt`
+   - `cp dbt/profiles.yml.example ~/.dbt/profiles.yml`
+   - Edit `~/.dbt/profiles.yml` with your values

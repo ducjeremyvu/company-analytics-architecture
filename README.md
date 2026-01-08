@@ -38,6 +38,8 @@ python3 scripts/generate_mock_data.py
 python3 scripts/load_to_bigquery.py
 
 cd dbt
+mkdir -p ~/.dbt
+cp profiles.yml.example ~/.dbt/profiles.yml
 dbt run
 dbt test
 ```
