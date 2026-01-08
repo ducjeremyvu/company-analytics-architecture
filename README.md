@@ -1,42 +1,64 @@
-# Company Analytics Architecture
+# ETL Showcase: Company Analytics Architecture
 
 ## Overview
-Brief description of the project and its purpose.
+This repo showcases ETL and analytics engineering skills using GCP, BigQuery, dbt,
+and a lightweight orchestrator. It keeps the scope small while demonstrating
+realistic patterns: extract, load, transform, and document.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Architecture](#architecture)
-- [Contributing](#contributing)
-- [License](#license)
+## What’s Inside
+- `docs/` — setup, architecture, pipeline, and ops docs
+- `scripts/` — GCP auth and BigQuery examples
+- `dbt/` — dbt project and models (staging + marts)
+- `orchestration/` — orchestration flow(s)
+- `pipelines/` — pipeline definitions or configs
+- `tests/` — data checks and validation examples
 
-## Features
-- Feature 1
-- Feature 2
-- Feature 3
+## Quickstart
+1. Read `docs/setup.md` for prerequisites and credentials.
+2. Install dependencies with `uv`:
+   - `uv venv`
+   - `uv sync`
+3. Configure env vars for GCP and BigQuery.
+4. Generate mock data and load into BigQuery.
+5. Run dbt or the Dagster job.
 
-## Installation
+## Clone & Run
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/company-analytics-architecture.git
-
-# Navigate to the project directory
+git clone <your-repo-url>
 cd company-analytics-architecture
 
-# Install dependencies
-npm install
+uv venv
+uv sync
+
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
+export GCP_PROJECT=your-project-id
+export BQ_DATASET=your_dataset
+
+python3 scripts/generate_mock_data.py
+python3 scripts/load_to_bigquery.py
+
+cd dbt
+dbt run
+dbt test
 ```
 
-## Usage
-Instructions and examples for running or using the project.
+## Orchestration
+- Dagster flow: `dagster dev -f orchestration/dagster_pipeline.py`
+- Run `etl_showcase_job` to generate data, load BigQuery, and run dbt
 
-## Architecture
-High-level diagram or description of the system architecture.
+## GCP Requirements
+- A GCP project with BigQuery enabled
+- A dataset created for raw tables
+- Service account or ADC credentials with BigQuery job + dataset permissions
 
-## Contributing
-Guidelines for contributing to the project.
+## What’s Ready vs. Missing
+- Ready: mock data generator, BigQuery loader, dbt models, Dagster job
+- Out of scope: proprietary data sources and production deployment setup
 
-## License
-Specify the license under which the project is distributed.
+## Documentation
+- `docs/setup.md`
+- `docs/architecture.md`
+- `docs/pipeline.md`
+- `docs/operations.md`
+- `docs/story.md`
+- `docs/mock-data-plan.md`

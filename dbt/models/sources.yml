@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    database: "{{ target.database }}"
+    schema: "{{ target.schema }}"
+    tables:
+      - name: projects
+      - name: jobs
+      - name: students
+      - name: workdays
+      - name: invoices
+      - name: project_costs
+      - name: marketing_costs

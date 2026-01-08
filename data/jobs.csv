@@ -1,0 +1,17 @@
+job_id,project_id,role,hourly_rate
+J0001,P001,Coordinator,44.02
+J0002,P001,Analyst,24.35
+J0003,P002,Tutor,30.26
+J0004,P002,Analyst,35.89
+J0005,P002,Tutor,38.78
+J0006,P003,Tutor,44.38
+J0007,P003,Mentor,23.81
+J0008,P003,Analyst,41.08
+J0009,P003,Analyst,35.28
+J0010,P004,Tutor,23.05
+J0011,P004,Coordinator,39.78
+J0012,P004,Tutor,41.67
+J0013,P004,Tutor,30.74
+J0014,P005,Analyst,25.74
+J0015,P005,Analyst,26.82
+J0016,P005,Analyst,38.14

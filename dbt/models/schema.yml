@@ -1,0 +1,106 @@
+version: 2
+
+models:
+  - name: stg_projects
+    columns:
+      - name: project_id
+        tests:
+          - unique
+          - not_null
+  - name: stg_jobs
+    columns:
+      - name: job_id
+        tests:
+          - unique
+          - not_null
+      - name: project_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_projects')
+              field: project_id
+  - name: stg_students
+    columns:
+      - name: student_id
+        tests:
+          - unique
+          - not_null
+      - name: job_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_jobs')
+              field: job_id
+  - name: stg_workdays
+    columns:
+      - name: workday_id
+        tests:
+          - unique
+          - not_null
+      - name: student_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_students')
+              field: student_id
+      - name: project_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_projects')
+              field: project_id
+  - name: stg_invoices
+    columns:
+      - name: invoice_id
+        tests:
+          - unique
+          - not_null
+      - name: project_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_projects')
+              field: project_id
+  - name: stg_project_costs
+    columns:
+      - name: cost_id
+        tests:
+          - unique
+          - not_null
+      - name: project_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_projects')
+              field: project_id
+  - name: stg_marketing_costs
+    columns:
+      - name: marketing_id
+        tests:
+          - unique
+          - not_null
+      - name: project_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_projects')
+              field: project_id
+  - name: project_finance
+    columns:
+      - name: project_id
+        tests:
+          - unique
+          - not_null
+  - name: project_staffing
+    columns:
+      - name: project_id
+        tests:
+          - not_null
+  - name: monthly_revenue
+    columns:
+      - name: revenue_month
+        tests:
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null
