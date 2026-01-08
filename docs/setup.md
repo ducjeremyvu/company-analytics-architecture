@@ -19,8 +19,8 @@ Set these before running scripts or orchestration flows:
 2. Authenticate: `gcloud auth application-default login`
 3. Ensure BigQuery API is enabled in your GCP project.
 4. Create a dataset if needed: `bq mk --dataset $GCP_PROJECT:$BQ_DATASET`
-5. Generate mock data: `python3 scripts/generate_mock_data.py`
-6. Load CSVs into BigQuery: `python3 scripts/load_to_bigquery.py`
+5. Generate mock data: `uv run python3 scripts/generate_mock_data.py`
+6. Load CSVs into BigQuery: `uv run python3 scripts/load_to_bigquery.py`
 7. Configure dbt profiles:
    - `mkdir -p ~/.dbt`
    - `cp dbt/profiles.yml.example ~/.dbt/profiles.yml`

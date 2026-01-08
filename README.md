@@ -20,7 +20,8 @@ realistic patterns: extract, load, transform, and document.
    - `uv sync`
 3. Configure env vars for GCP and BigQuery.
 4. Generate mock data and load into BigQuery.
-5. Run dbt or the Dagster job.
+5. Configure dbt profiles.
+6. Run dbt or the Dagster job.
 
 ## Clone & Run
 ```bash
@@ -34,14 +35,14 @@ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json
 export GCP_PROJECT=your-project-id
 export BQ_DATASET=your_dataset
 
-python3 scripts/generate_mock_data.py
-python3 scripts/load_to_bigquery.py
+uv run python3 scripts/generate_mock_data.py
+uv run python3 scripts/load_to_bigquery.py
 
 cd dbt
 mkdir -p ~/.dbt
 cp profiles.yml.example ~/.dbt/profiles.yml
-dbt run
-dbt test
+uv run dbt run
+uv run dbt test
 ```
 
 ## Orchestration
@@ -52,6 +53,13 @@ dbt test
 - A GCP project with BigQuery enabled
 - A dataset created for raw tables
 - Service account or ADC credentials with BigQuery job + dataset permissions
+
+## End-to-End Flow
+1. Create and activate the `uv` environment.
+2. Export GCP credentials and dataset env vars.
+3. Generate mock CSVs and load them into BigQuery.
+4. Configure dbt profiles under `~/.dbt`.
+5. Run dbt models + tests (or trigger the Dagster job).
 
 ## What’s Ready vs. Missing
 - Ready: mock data generator, BigQuery loader, dbt models, Dagster job
