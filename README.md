@@ -16,7 +16,7 @@ realistic patterns: extract, load, transform, and document.
 ## Quickstart
 1. Read `docs/setup.md` for prerequisites and credentials.
 2. Install dependencies with `uv`:
-   - `uv venv`
+   - `uv venv --python 3.11`
    - `uv sync`
 3. Configure env vars for GCP and BigQuery.
 4. Generate mock data and load into BigQuery.
@@ -27,7 +27,7 @@ realistic patterns: extract, load, transform, and document.
 git clone <your-repo-url>
 cd company-analytics-architecture
 
-uv venv
+uv venv --python 3.11
 uv sync
 
 export GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json

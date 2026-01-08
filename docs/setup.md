@@ -1,7 +1,7 @@
 # Setup
 
 ## Prerequisites
-- Python 3.11+
+- Python 3.11 or 3.12
 - `gcloud` CLI with application default credentials
 - Access to a GCP project with BigQuery enabled
 - `uv` installed for dependency management
@@ -13,8 +13,8 @@ Set these before running scripts or orchestration flows:
 - `BQ_DATASET` — target BigQuery dataset name
 
 ## Local Setup
-1. Install deps with `uv`:
-   - `uv venv`
+1. Install deps with `uv` (pin Python 3.11/3.12):
+   - `uv venv --python 3.11`
    - `uv sync`
 2. Authenticate: `gcloud auth application-default login`
 3. Ensure BigQuery API is enabled in your GCP project.

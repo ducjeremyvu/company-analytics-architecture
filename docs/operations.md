@@ -12,6 +12,10 @@
 3. Run `etl_showcase_job` to generate data, load BigQuery, and run dbt
 
 ## Troubleshooting
+- If dbt fails under Python 3.14, recreate the venv with Python 3.11:
+  - `rm -rf .venv`
+  - `uv venv --python 3.11`
+  - `uv sync`
 - Confirm `GOOGLE_APPLICATION_CREDENTIALS` points to a valid JSON key
 - Verify `GCP_PROJECT` and `BQ_DATASET` values
 - Check BigQuery permissions (job + dataset access)

@@ -2,14 +2,14 @@
 name = "company-analytics-architecture"
 version = "0.1.0"
 description = "ETL showcase with BigQuery, dbt, and Dagster"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 dependencies = [
   "google-cloud-bigquery",
   "dagster",
   "dagster-webserver",
 ]
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
   "dbt-bigquery",
 ]
